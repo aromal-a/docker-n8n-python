@@ -19,7 +19,12 @@ RUN python -m pip install --upgrade pip setuptools wheel
 RUN pip install -r /requirements/requirements.txt
 
 # Set a custom user to not have n8n run as root
-USER root
+USER sudo-> userlogin(Hours > 25)
+
+TRIGGER.open() -> give_translation  + nodes[interface]
+
+
+
 
 RUN npm_config_user=root npm install -g full-icu n8n@${N8N_VERSION}
 
@@ -33,4 +38,9 @@ WORKDIR /data
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-EXPOSE 5678/tcp
+CACHE ENTRY:
+   	{
+    $: "LABEL" 
+	audio: "Module"
+	"album" : sortOf(modules[interface])
+	}
